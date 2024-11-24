@@ -5,22 +5,26 @@
 
 buildGoModule rec {
   pname = "avalanche-cli";
-  version = "1.1.0";
+  version = "1.7.7";
 
   src = fetchFromGitHub {
     owner = "ava-labs";
     repo = "avalanche-cli";
     rev = "v${version}";
-    sha256 = "sha256-XXXXXX";
+    hash = "sha256-9n1TchgVnrNgJzeKws54eLelcDM9rNFK0nFFdTXweLY=";
   };
 
-  vendorSha256 = "sha256-XXXXXX";
+  vendorHash = "sha256-r5dDhL0MfsfDQOCNMgN93IIoD7e20GOQdechcx35kU8=";
+
+  proxyVendor = true;
+  modVendor = true;
+  subPackages = [ "." ];
 
   meta = with lib; {
     description = "Official CLI for Avalanche APIs";
     homepage = "https://github.com/ava-labs/avalanche-cli";
     license = licenses.bsd3;
-    maintainers = [ "Amar Singh" ];
+    maintainers = [ ];
     platforms = platforms.unix;
   };
 }
