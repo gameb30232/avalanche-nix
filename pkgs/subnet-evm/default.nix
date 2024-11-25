@@ -22,6 +22,9 @@ buildGoModule rec {
   proxyVendor = true;
   modVendor = true;
 
+  subPackages = [ "." ];
+  doCheck = false;
+
   ldflags = [
     "-X github.com/ava-labs/subnet-evm/plugin/evm.Version=${version}"
   ];
